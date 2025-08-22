@@ -9,7 +9,8 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Tic Tac Toe</title>
+		<meta name="description" content="Play Tic Tac Toe vs a friend or a basic AI. Minimal, responsive UI with score tracking." />
 	</head>
 	<body>
 		<ThemeToggle />
@@ -25,29 +26,38 @@ import ThemeToggle from '../components/ThemeToggle.astro';
 		--text-secondary: #4b5563;
 		--border-color: rgba(0, 0, 0, 0.1);
 		--card-bg: rgba(255, 255, 255, 1);
-		--card-hover-bg: rgba(255, 255, 255, 0.55);
-		--shadow-color: rgba(0, 0, 0, 0.1);
-		--shadow-hover-color: rgba(0, 0, 0, 0.15);
+		--card-hover-bg: rgba(0, 0, 0, 0.03);
+		--shadow-color: rgba(0, 0, 0, 0.08);
+		--shadow-hover-color: rgba(0, 0, 0, 0.14);
+
+		/* Brand colors */
+		--color-primary: #3498db;
+		--color-secondary: #2ecc71;
+		--color-accent: #e67e22;
 	}
 
 	body.dark-theme {
 		/* Dark theme variables */
-		--bg-color: #111827;
-		--text-color: #f9fafb;
-		--text-secondary: #d1d5db;
-		--border-color: rgba(255, 255, 255, 0.2);
-		--card-bg: rgba(31, 41, 55, 0.9);
-		--card-hover-bg: rgba(31, 41, 55, 0.7);
-		--shadow-color: rgba(0, 0, 0, 0.3);
-		--shadow-hover-color: rgba(0, 0, 0, 0.4);
+		--bg-color: #0f172a;
+		--text-color: #e5e7eb;
+		--text-secondary: #a1a1aa;
+		--border-color: rgba(255, 255, 255, 0.16);
+		--card-bg: rgba(2, 6, 23, 0.6);
+		--card-hover-bg: rgba(255, 255, 255, 0.04);
+		--shadow-color: rgba(0, 0, 0, 0.4);
+		--shadow-hover-color: rgba(0, 0, 0, 0.6);
 	}
 
 	html,
 	body {
 		margin: 0;
 		width: 100%;
-		height: 100%;
-		background-color: var(--bg-color);
+		min-height: 100%;
+		background:
+			radial-gradient(1200px 600px at 0% 0%, color-mix(in oklab, var(--color-primary), transparent 92%), transparent),
+			radial-gradient(1200px 600px at 100% 0%, color-mix(in oklab, var(--color-secondary), transparent 92%), transparent),
+			radial-gradient(1200px 600px at 50% 100%, color-mix(in oklab, var(--color-accent), transparent 92%), transparent),
+			var(--bg-color);
 		color: var(--text-color);
 		transition: background-color 0.3s ease, color 0.3s ease;
 	}
